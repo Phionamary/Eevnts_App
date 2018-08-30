@@ -90,9 +90,10 @@ ul{
     margin: 0;
     padding: 0
 }
+
 .images{
     float: left;
-    width: 50%;
+    width: 45%;
     margin: 50px;
 }
 
