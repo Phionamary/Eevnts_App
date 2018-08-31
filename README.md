@@ -1,2 +1,2 @@
-# Events_App
-This is a repository for day 3 in the Level Up program
+# Events App
+This is a repository for building an application during the Level Up program
