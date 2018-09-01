@@ -1,2 +1,2 @@
 # Events App
-This is a repository for the html and CSS portion in the Level Up program
+This is a repository for building an application during the Level Up program
