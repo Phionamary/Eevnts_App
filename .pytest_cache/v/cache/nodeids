@@ -1,0 +1,8 @@
+[
+  "test_signup.py::SignUpTest::test_add_user",
+  "test_signup.py::SignUpTest::test_check_length_bio_info",
+  "test_signup.py::SignUpTest::test_missing_key",
+  "test_signup.py::SignUpTest::test_return_password",
+  "test_signup.py::SignUpTest::test_signup_creation",
+  "test_signup.py::SignUpTest::test_unknown_method"
+]
