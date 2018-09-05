@@ -1,0 +1,8 @@
+[
+  "test_signup.py::SignUpTest::test_confirm_guest",
+  "test_signup.py::SignUpTest::test_create_new_guest",
+  "test_signup.py::SignUpTest::test_guestEmail_exists",
+  "test_signup.py::SignUpTest::test_guestName_exists",
+  "test_signup.py::SignUpTest::test_length_of_guest_list",
+  "test_signup.py::SignUpTest::test_whitespace"
+]

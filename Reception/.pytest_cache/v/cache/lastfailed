@@ -1,0 +1,16 @@
+{
+  "test_reception.py::RegistrationTest::test_add_guest": true,
+  "test_reception.py::RegistrationTest::test_enter_user_name": true,
+  "test_reception.py::RegistrationTest::test_guest_email_exists": true,
+  "test_reception.py::RegistrationTest::test_user_exists": true,
+  "test_reception.py::RegistrationTest::test_username_exists": true,
+  "test_registration.py": true,
+  "test_signup.py::SignUpTest::test_empty_email": true,
+  "test_signup.py::SignUpTest::test_empty_guestName": true,
+  "test_signup.py::SignUpTest::test_guestEmail": true,
+  "test_signup.py::SignUpTest::test_guestName": true,
+  "test_signup.py::SignUpTest::test_guest_email": true,
+  "test_signup.py::SignUpTest::test_guest_name": true,
+  "test_signup.py::SignUpTest::test_length_of_register_list": true,
+  "test_signup.py::SignUpTest::test_valid_email": true
+}
