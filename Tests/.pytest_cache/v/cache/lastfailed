@@ -1,0 +1,4 @@
+{
+  "test_signup.py::SignUpTest::test_userEmail_exists": true,
+  "test_signup.py::SignUpTest::test_userName_exists": true
+}

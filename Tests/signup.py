@@ -1,51 +1,51 @@
 class Register():
 
-    guest_details = {}
+    user_details = {}
 
     REGISTER = []
 
 
-    def guestName(self, guest_name):
-        if guest_name == "":
-            print ("Please enter a guest\'s name:")
+    def userName(self, user_name):
+        if user_name == "":
+            print ("Please enter a user\'s name:")
         else:
-            self.guest_details["guest_name"] = guest_name
+            self.user_details["user_name"] = user_name
 
-    def guestEmails(self, guest_email):
-        if guest_email == "":
+    def userEmails(self, user_email):
+        if user_email == "":
             print ("Please enter valid email address:")
         else:
-            self.guest_details["guest_email"] = guest_email
+            self.user_details["user_email"] = user_email
 
     def readFiles(self):
-        guest_list = []
-        with open("guests.txt", "r") as current_guest_list:
-            self.guest_list = current_guest_list.readlines()
-            current_guest_list.close()
+        user_list = []
+        with open("users.txt", "r") as current_users_list:
+            self.users_list = current_users_list.readlines()
+            current_users_list.close()
 
-        return guest_list
+        return user_list
 
     def write_to_list(self):
-        if self.guest_details:
-            with open("guest.txt") as editted_guest_list:
-                editted_guest_list.write(str(self.guest_details) + "\n")
-                editted_guest_list.close()
+        if self.user_details:
+            with open("user.txt") as editted_user_list:
+                editted_user_list.write(str(self.user_details) + "\n")
+                editted_user_list.close()
 
 
-    def print_guest_list(self):
-        with open("guest.txt", "r") as updated_list:
-            self.guest_list = updated_list.readlines()
-            print(" These are the invited guests: ")
+    def print_user_list(self):
+        with open("user.txt", "r") as updated_list:
+            self.user_list = updated_list.readlines()
+            print(" These are the invited users: ")
 
-            for name in self.guest_list:
+            for name in self.user_list:
                 print(name.strip("\n"))
             updated_list.close()
 
-    def confirm_guest(self):
-        if len(self.guest_details) !=  0:
-            self.REGISTER.append(self.guest_details)
-            print ("Guest confirmed")
-            print ("There are " + str(len(self.REGISTER)) + "guests on the list")
+    def confirm_user(self):
+        if len(self.user_details) !=  0:
+            self.REGISTER.append(self.user_details)
+            print ("User confirmed")
+            print ("There are " + str(len(self.REGISTER)) + "users on the list")
         else:
             print ("Error in registration")
 

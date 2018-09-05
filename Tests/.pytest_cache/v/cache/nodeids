@@ -1,0 +1,8 @@
+[
+  "test_signup.py::SignUpTest::test_confirm_user",
+  "test_signup.py::SignUpTest::test_create_new_user",
+  "test_signup.py::SignUpTest::test_length_of_user_list",
+  "test_signup.py::SignUpTest::test_userEmail_exists",
+  "test_signup.py::SignUpTest::test_userName_exists",
+  "test_signup.py::SignUpTest::test_whitespace"
+]
