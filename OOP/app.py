@@ -1,41 +1,43 @@
-from module import Person, Users, User
-from flask import Flask,request, json, jsonify, make_response
-
-
+from module import User, GuestList
+from flask import Flask,jsonify,abort, make_response,request 
 
 app = Flask(__name__)
 
-users = Users()
+users = User()
 
-@app.route("/api/v1/users", methods = ["POST"])
+guests = GuestList()
+
+def get_single_user(userId):
+    
+    for user in users:
+        if user["userId"] == userId:
+            return user
+
+@app.route('/api/v1/users', methods=['POST'])
 def add_user():
-    user = {
-        "username": request.json["name"],
-        "email": request.json["email_address"]
-    }
-
-    if user["username"] == "":
-        return make_response(jsonify({"Error": "Username cannot be empty!"}), 400)
-        
-    if user["email"] == "":
-        return make_response(jsonify({"Error": "Email cannot be empty"}), 400)
-
-    else:
-        users.add_user(user)
-        return make_response(jsonify({"User": user}), 201)
+    if not request.json or 'user' not in request.json:
+        abort(400)
+    userId = len(users) + 1
+    new_user = request.json.get('user')
+    user = {"userId": userId, "userName": new_user}
+    users.append(user)
+    return jsonify({'user': user}), 201
        
 
-@app.route("/api/v1/user", methods = ["GET"])
-def get_users():
-    all_users = users.get_all_users()
-    return make_response(jsonify({"Users info": all_users}), 200)
+@app.route("/api/v1/users", methods=['GET'])
+def get_all_users():
+    return make_response(jsonify({"users": users}), 200)
 
 
-@app.route("/api//v1/users", methods = ["DELETE"])
-def delete_users():
-    deleted_user = users.delete_user()
-    return make_response(jsonify({"Deleted user": deleted_user}), 200)
+@app.route('/api/v1/users/<int:userId>', methods=['DELETE'])
+def delete_user(userId):
+    user = get_single_user(userId)
+    if len(user) == 0:
+        abort(404)
+    users.remove(user[0])
+    return jsonify({}), 204
 
 
 if __name__=='__main__':
     app.run(debug=True)
+

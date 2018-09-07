@@ -1,47 +1,51 @@
+from flask import Flask
+
+app = Flask(__name__)
+
 class Person(object):
 
-    def __init__(self, personName, age, race, gender):
+    def __init__(self, name, age, race, gender):
         
-        self.personName = personName
+        self.name = name
         self.age = age
         self.race = race
         self.gender = gender
 
     def description(self):
-        return "This Person is an {} age year old {}race {} gender  called {} personName ".format(self.personName,self.age,self.race, self.gender)
+        return "This Person is an {} age year old {}race {} gender  called {} name ".format(self.name,self.age,self.race, self.gender)
+
 
 class User(Person):
 
-    def __init__(self, personName, age, race, gender, email):
-        super().__init__(personName, age, race, gender)
+    def __init__(self, name, age, race, gender, email):
+        super().__init__(name, age, race, gender)
         self.email = email
-
-
-    USERS = []
       
-        
+    all_users = []
+
+
     def add_user(self, user):
-        user["userId"] = len(self.USERS) + 1
-        self.USERS.append(user)
-        return self.USERS
+        user["userId"] = len(self.all_users) + 1
+        self.all_users.append(user)
+        return self.all_users
 
     def get_all_users(self):
-        return self.USERS
+        return self.all_users
     
     def find_user_by_id(self, userId):
         
         if(self.user_exists(userId)):
-            return self.USERS[userId]
+            return self.all_users[userId]
             
         return None
             
     def delete_user(self):
-        deleted_user = self.USERS[-1]
-        self.USERS.remove(deleted_user)
-        return self.USERS
+        deleted_user = self.all_users[-1]
+        self.all_users.remove(deleted_user)
+        return self.all_users
         
     def user_exists(self, userId):
-        return self.USERS.__contains__(userId)
+        return self.all_users.__contains__(userId)
 
 
 class GuestList():
@@ -59,3 +63,6 @@ class GuestList():
         deleted_guest = self.guests[guest_id]
         self.guests.remove(guest_id)
         return deleted_guest
+
+if __name__=='__main__':
+    app.run(debug=True)
